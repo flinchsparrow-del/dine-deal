@@ -55,11 +55,11 @@ function Redeem() {
     );
   }
 
-  const onDragEnd = async () => {
-    if (x.get() >= maxX * 0.72) {
-      await animate(x, maxX, { type: "spring", stiffness: 260, damping: 28 });
+  const onDragEnd = () => {
+    if (x.get() > maxX * 0.75) {
+      animate(x, maxX, { type: "spring", stiffness: 300, damping: 30 });
       redeem(booking.id);
-      setDone(true);
+      setTimeout(() => setDone(true), 250);
     } else {
       animate(x, 0, { type: "spring", stiffness: 400, damping: 35 });
     }
@@ -77,13 +77,9 @@ function Redeem() {
       </p>
 
       <div className="mt-5 overflow-hidden rounded-3xl bg-card shadow-card">
-        <div className="relative overflow-hidden">
+        <div className="relative">
           <img src={venue.image} alt={venue.name} className="h-44 w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
-          <Info
-            aria-label="Informace o podniku"
-            className="absolute right-3 top-3 h-5 w-5 text-primary-foreground drop-shadow-sm"
-          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.35_0.14_35_/_0.95)] to-transparent" />
           <div className="absolute inset-x-0 bottom-0 p-4 text-primary-foreground">
             <h1 className="text-xl font-black">{venue.name}</h1>
             <p className="text-xs opacity-90">{venue.categories.join(" · ")}</p>
@@ -91,8 +87,9 @@ function Redeem() {
         </div>
 
         <div className="p-4">
-          <div className="flex items-start gap-2">
+          <div className="flex items-start justify-between gap-2">
             <h2 className="text-xl font-black">{booking.deal}</h2>
+            <Info className="mt-1 h-5 w-5 shrink-0 text-muted-foreground" />
           </div>
           <p className="mt-1 text-sm text-muted-foreground">{dealDescription(booking.deal)}</p>
 
@@ -109,7 +106,7 @@ function Redeem() {
 
           <div
             ref={trackRef}
-            className="swipe-touch-lock relative mt-4 h-16 touch-none overflow-hidden rounded-2xl border border-border bg-muted"
+            className="relative mt-4 h-16 overflow-hidden rounded-2xl border border-border bg-background"
           >
             <span className="pointer-events-none absolute inset-0 grid place-items-center text-sm font-bold text-foreground">
               {booking.status === "redeemed" ? "DEAL uplatněn" : "Swipe to redeem DEAL"}
@@ -117,12 +114,12 @@ function Redeem() {
             <motion.button
               drag="x"
               dragConstraints={{ left: 0, right: maxX }}
-              dragElastic={0.05}
+              dragElastic={0}
               dragMomentum={false}
-              style={{ x, touchAction: "none" }}
+              style={{ x }}
               onDragEnd={onDragEnd}
               aria-label="Přejeď pro uplatnění slevy"
-              className="swipe-touch-lock absolute left-1.5 top-1.5 grid h-[52px] w-[52px] cursor-grab touch-none place-items-center rounded-2xl bg-success text-foreground active:cursor-grabbing"
+              className="absolute left-1.5 top-1.5 grid h-[52px] w-[52px] cursor-grab touch-none place-items-center rounded-2xl bg-success text-success-foreground active:cursor-grabbing"
             >
               <Check className="h-7 w-7" strokeWidth={3} />
             </motion.button>

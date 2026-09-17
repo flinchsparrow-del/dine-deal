@@ -166,10 +166,6 @@
   background-image: var(--gradient-primary);
 }
 
-@utility swipe-touch-lock {
-  touch-action: none !important;
-}
-
 @layer base {
   * {
     border-color: var(--color-border);

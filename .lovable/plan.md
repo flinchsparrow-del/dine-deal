@@ -10,8 +10,3 @@
 ## Technické detaily
 - Změny zůstanou pouze v prezentační vrstvě existujících obrazovek.
 - Rezervace, ukládání a swipe funkce se nemění.
-
-## Doplnění: dotykové ovládání
-- Zakážu posouvání stránky během gesta na dráze i jezdci.
-- Nastavím práh dokončení na 72 % dráhy, minimální pružnost a plynulé dokončení doprava.
-- Ověřím reálné přetažení a následné uplatnění v mobilním náhledu.
