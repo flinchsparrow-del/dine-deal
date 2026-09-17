@@ -58,7 +58,7 @@ function Account() {
       <div className="mx-4 -mt-4 divide-y divide-border rounded-2xl bg-card shadow-card">
         {rows.map(({ icon: Icon, label }) => (
           <button key={label} className="flex w-full items-center gap-3 px-4 py-4 text-left text-sm font-semibold">
-            <Icon className="h-4.5 w-4.5 text-primary" />
+            <Icon className="h-4 w-4 text-primary" />
             {label}
           </button>
         ))}

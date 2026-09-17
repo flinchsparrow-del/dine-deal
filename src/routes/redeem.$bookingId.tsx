@@ -119,7 +119,7 @@ function Redeem() {
               style={{ x }}
               onDragEnd={onDragEnd}
               aria-label="Přejeď pro uplatnění slevy"
-              className="absolute left-1.5 top-1.5 grid h-13 w-13 cursor-grab touch-none place-items-center rounded-2xl bg-success text-success-foreground active:cursor-grabbing"
+              className="absolute left-1.5 top-1.5 grid h-[52px] w-[52px] cursor-grab touch-none place-items-center rounded-2xl bg-success text-success-foreground active:cursor-grabbing"
             >
               <Check className="h-7 w-7" strokeWidth={3} />
             </motion.button>

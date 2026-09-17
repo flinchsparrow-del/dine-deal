@@ -28,7 +28,7 @@ export const Route = createFileRoute("/my-deals")({
       { property: "og:description", content: "Rezervované a uplatněné slevy na jednom místě." },
     ],
   }),
-  component: MyDeals;
+  component: MyDeals,
 });
 
 function MyDeals() {
