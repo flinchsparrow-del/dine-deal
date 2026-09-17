@@ -29,7 +29,7 @@ function Account() {
 
   return (
     <div className="min-h-screen pb-24">
-      <div className="bg-gradient-primary px-5 pb-8 pt-10 text-primary-foreground">
+      <div className="gradient-primary px-5 pb-8 pt-10 text-primary-foreground">
         <div className="flex items-center gap-4">
           <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-card text-2xl font-black text-primary">
             JN

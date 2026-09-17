@@ -44,7 +44,7 @@ function Redeem() {
 
   if (!booking || !venue) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-primary px-6 text-center text-primary-foreground">
+      <div className="flex min-h-screen items-center justify-center gradient-primary px-6 text-center text-primary-foreground">
         <div>
           <p className="font-bold">Tato sleva už není dostupná.</p>
           <button onClick={() => navigate({ to: "/my-deals" })} className="mt-4 underline">
@@ -71,7 +71,7 @@ function Redeem() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-primary px-4 pb-10 pt-5">
+    <div className="relative min-h-screen gradient-primary px-4 pb-10 pt-5">
       <p className="text-center text-xs font-black uppercase tracking-widest text-primary-foreground">
         Deal redemption
       </p>
@@ -169,7 +169,7 @@ function Redeem() {
             <button
               onClick={submit}
               disabled={rating === 0}
-              className="mt-4 w-full rounded-full bg-gradient-primary py-3.5 text-base font-bold text-primary-foreground disabled:opacity-40"
+              className="mt-4 w-full rounded-full gradient-primary py-3.5 text-base font-bold text-primary-foreground disabled:opacity-40"
             >
               Continue
             </button>

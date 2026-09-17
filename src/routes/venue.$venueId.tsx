@@ -93,7 +93,7 @@ function VenueDetail() {
             key={t}
             onClick={() => setTab(t)}
             className={`flex-1 rounded-full py-2.5 text-sm font-bold transition-colors ${
-              tab === t ? "bg-gradient-primary text-primary-foreground" : "text-foreground"
+              tab === t ? "gradient-primary text-primary-foreground" : "text-foreground"
             }`}
           >
             {t === "deals" ? "Deals & more" : "Menu"}
@@ -122,7 +122,7 @@ function VenueDetail() {
               </ul>
               <button
                 onClick={() => onBook(deal)}
-                className="mt-3 w-full rounded-full bg-gradient-primary py-3.5 text-base font-bold text-primary-foreground active:scale-[0.99]"
+                className="mt-3 w-full rounded-full gradient-primary py-3.5 text-base font-bold text-primary-foreground active:scale-[0.99]"
               >
                 Book DEAL
               </button>

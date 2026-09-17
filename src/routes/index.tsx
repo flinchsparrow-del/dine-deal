@@ -103,7 +103,7 @@ function Explore() {
               key={v}
               onClick={() => setView(v)}
               className={`flex flex-1 items-center justify-center gap-1.5 rounded-full py-2 text-sm font-bold transition-colors ${
-                view === v ? "bg-gradient-primary text-primary-foreground" : "text-muted-foreground"
+                view === v ? "gradient-primary text-primary-foreground" : "text-muted-foreground"
               }`}
             >
               {v === "list" ? <List className="h-4 w-4" /> : <MapIcon className="h-4 w-4" />}

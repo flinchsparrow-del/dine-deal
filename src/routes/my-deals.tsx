@@ -46,7 +46,7 @@ function MyDeals() {
               key={t}
               onClick={() => setTab(t)}
               className={`flex flex-1 items-center justify-center gap-2 rounded-full py-2.5 text-sm font-bold transition-colors ${
-                tab === t ? "bg-gradient-primary text-primary-foreground" : "text-foreground"
+                tab === t ? "gradient-primary text-primary-foreground" : "text-foreground"
               }`}
             >
               {t === "booked" ? "Booked" : "Redeemed"}
