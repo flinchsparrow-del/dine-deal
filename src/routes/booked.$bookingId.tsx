@@ -18,12 +18,12 @@ function Booked() {
   return (
     <div className="flex min-h-screen flex-col px-6 pb-10 pt-24">
       <div className="text-center">
-        <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border-2 border-success">
-          <Check className="h-8 w-8 text-success" strokeWidth={3} />
+        <div className="mx-auto grid h-16 w-16 place-items-center rounded-full border border-success">
+          <Check className="h-8 w-8 text-success" strokeWidth={1.8} />
         </div>
         <h1 className="mt-5 text-3xl font-black">Deal booked</h1>
         <p className="mx-auto mt-2 max-w-xs text-sm text-muted-foreground">
-          Nezapomeň si rezervovat stůl nebo si jídlo objednat s sebou. Dobrou chuť!
+          Don&apos;t forget to reserve a table or order food to go. Enjoy your meal!
         </p>
       </div>
 
@@ -34,8 +34,8 @@ function Booked() {
         >
           My DEALs
         </Link>
-        <Link to="/" className="block py-2 text-center text-sm font-bold">
-          Zpět na Explore
+        <Link to="/" className="block py-2 text-center text-sm font-bold text-foreground">
+          Contact
         </Link>
       </div>
     </div>
