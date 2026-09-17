@@ -119,7 +119,7 @@ function Redeem() {
               dragConstraints={{ left: 0, right: maxX }}
               dragElastic={0.05}
               dragMomentum={false}
-              style={{ x }}
+              style={{ x, touchAction: "none" }}
               onDragEnd={onDragEnd}
               aria-label="Přejeď pro uplatnění slevy"
               className="absolute left-1.5 top-1.5 grid h-[52px] w-[52px] cursor-grab touch-none place-items-center rounded-2xl bg-success text-foreground active:cursor-grabbing"
