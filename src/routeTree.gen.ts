@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccountRouteImport } from './routes/account'
+import { Route as BookedBookingIdRouteImport } from './routes/booked.$bookingId'
+import { Route as VenueVenueIdRouteImport } from './routes/venue.$venueId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BookedBookingIdRoute = BookedBookingIdRouteImport.update({
+  id: '/booked/$bookingId',
+  path: '/booked/$bookingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VenueVenueIdRoute = VenueVenueIdRouteImport.update({
+  id: '/venue/$venueId',
+  path: '/venue/$venueId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/booked/$bookingId': typeof BookedBookingIdRoute
+  '/venue/$venueId': typeof VenueVenueIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/booked/$bookingId': typeof BookedBookingIdRoute
+  '/venue/$venueId': typeof VenueVenueIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/account': typeof AccountRoute
+  '/booked/$bookingId': typeof BookedBookingIdRoute
+  '/venue/$venueId': typeof VenueVenueIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/account' | '/booked/$bookingId' | '/venue/$venueId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/account' | '/booked/$bookingId' | '/venue/$venueId'
+  id: '__root__' | '/' | '/account' | '/booked/$bookingId' | '/venue/$venueId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccountRoute: typeof AccountRoute
+  BookedBookingIdRoute: typeof BookedBookingIdRoute
+  VenueVenueIdRoute: typeof VenueVenueIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/booked/$bookingId': {
+      id: '/booked/$bookingId'
+      path: '/booked/$bookingId'
+      fullPath: '/booked/$bookingId'
+      preLoaderRoute: typeof BookedBookingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/venue/$venueId': {
+      id: '/venue/$venueId'
+      path: '/venue/$venueId'
+      fullPath: '/venue/$venueId'
+      preLoaderRoute: typeof VenueVenueIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccountRoute: AccountRoute,
+  BookedBookingIdRoute: BookedBookingIdRoute,
+  VenueVenueIdRoute: VenueVenueIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
