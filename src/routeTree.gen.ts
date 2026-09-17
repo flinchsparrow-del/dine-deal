@@ -11,7 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AccountRouteImport } from './routes/account'
+import { Route as MyDealsRouteImport } from './routes/my-deals'
 import { Route as BookedBookingIdRouteImport } from './routes/booked.$bookingId'
+import { Route as RedeemBookingIdRouteImport } from './routes/redeem.$bookingId'
 import { Route as VenueVenueIdRouteImport } from './routes/venue.$venueId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,9 +26,19 @@ const AccountRoute = AccountRouteImport.update({
   path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MyDealsRoute = MyDealsRouteImport.update({
+  id: '/my-deals',
+  path: '/my-deals',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BookedBookingIdRoute = BookedBookingIdRouteImport.update({
   id: '/booked/$bookingId',
   path: '/booked/$bookingId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RedeemBookingIdRoute = RedeemBookingIdRouteImport.update({
+  id: '/redeem/$bookingId',
+  path: '/redeem/$bookingId',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VenueVenueIdRoute = VenueVenueIdRouteImport.update({
@@ -38,34 +50,61 @@ const VenueVenueIdRoute = VenueVenueIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/my-deals': typeof MyDealsRoute
   '/booked/$bookingId': typeof BookedBookingIdRoute
+  '/redeem/$bookingId': typeof RedeemBookingIdRoute
   '/venue/$venueId': typeof VenueVenueIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/my-deals': typeof MyDealsRoute
   '/booked/$bookingId': typeof BookedBookingIdRoute
+  '/redeem/$bookingId': typeof RedeemBookingIdRoute
   '/venue/$venueId': typeof VenueVenueIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/account': typeof AccountRoute
+  '/my-deals': typeof MyDealsRoute
   '/booked/$bookingId': typeof BookedBookingIdRoute
+  '/redeem/$bookingId': typeof RedeemBookingIdRoute
   '/venue/$venueId': typeof VenueVenueIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/account' | '/booked/$bookingId' | '/venue/$venueId'
+  fullPaths:
+    | '/'
+    | '/account'
+    | '/my-deals'
+    | '/booked/$bookingId'
+    | '/redeem/$bookingId'
+    | '/venue/$venueId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/account' | '/booked/$bookingId' | '/venue/$venueId'
-  id: '__root__' | '/' | '/account' | '/booked/$bookingId' | '/venue/$venueId'
+  to:
+    | '/'
+    | '/account'
+    | '/my-deals'
+    | '/booked/$bookingId'
+    | '/redeem/$bookingId'
+    | '/venue/$venueId'
+  id:
+    | '__root__'
+    | '/'
+    | '/account'
+    | '/my-deals'
+    | '/booked/$bookingId'
+    | '/redeem/$bookingId'
+    | '/venue/$venueId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AccountRoute: typeof AccountRoute
+  MyDealsRoute: typeof MyDealsRoute
   BookedBookingIdRoute: typeof BookedBookingIdRoute
+  RedeemBookingIdRoute: typeof RedeemBookingIdRoute
   VenueVenueIdRoute: typeof VenueVenueIdRoute
 }
 
@@ -85,11 +124,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/my-deals': {
+      id: '/my-deals'
+      path: '/my-deals'
+      fullPath: '/my-deals'
+      preLoaderRoute: typeof MyDealsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/booked/$bookingId': {
       id: '/booked/$bookingId'
       path: '/booked/$bookingId'
       fullPath: '/booked/$bookingId'
       preLoaderRoute: typeof BookedBookingIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/redeem/$bookingId': {
+      id: '/redeem/$bookingId'
+      path: '/redeem/$bookingId'
+      fullPath: '/redeem/$bookingId'
+      preLoaderRoute: typeof RedeemBookingIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/venue/$venueId': {
@@ -105,7 +158,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AccountRoute: AccountRoute,
+  MyDealsRoute: MyDealsRoute,
   BookedBookingIdRoute: BookedBookingIdRoute,
+  RedeemBookingIdRoute: RedeemBookingIdRoute,
   VenueVenueIdRoute: VenueVenueIdRoute,
 }
 export const routeTree = rootRouteImport
